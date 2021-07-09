@@ -127,7 +127,9 @@ namespace hazedumper
         public const Int32 dwGameRulesProxy = 0x52BF28C;
         public const Int32 dwGetAllClasses = 0xDB101C;
         public const Int32 dwGlobalVars = 0x588CF0;
-        public const Int32 dwGlowObjectManager = 0x52EA640;
+        public const Int32 dwGlowObjectManager = Memory.Read<int>(Memory.Client +
+                                 Memory.FindPattern("A1 ? ? ? ? A8 01 75 4B", Memory.Client, Memory.ClientSize) + 1) +
+                4 - Memory.Client;;
         public const Int32 dwInput = 0x51F3770;
         public const Int32 dwInterfaceLinkList = 0x944B44;
         public const Int32 dwLocalPlayer = 0xD892CC;
